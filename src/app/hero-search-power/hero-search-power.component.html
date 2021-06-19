@@ -1,0 +1,9 @@
+<label for="search-box-power">Search By Power</label>
+<input #searchBox id="search-box-power" (input)="search(searchBox.value)" />
+<ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async">
+        <a routerLink="/detail/{{hero.id}}">
+             {{hero.name}} | <!--<span *ngFor="let power of powers">{{power}}</span> -->
+        </a>
+    </li>
+</ul>

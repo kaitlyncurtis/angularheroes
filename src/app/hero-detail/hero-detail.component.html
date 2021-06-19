@@ -1,0 +1,22 @@
+<div *ngIf="hero">
+
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div><span>Hometown: </span>{{hero.hometown | uppercase}}</div>
+    <div><span>Powers: </span><span *ngFor="let power of hero.powers">{{power | uppercase}}</span></div>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+    <div>
+        <label for="hero-hometown">Hometown: </label>
+        <input id="hero-hometown" [(ngModel)]="hero.hometown" placeholder="hometown">
+    </div>
+    <!-- <div>
+        <label for="hero-powers">Powers </label>
+        <input id="hero-powers" [(ngModel)]="hero.powers" placeholder="powers">
+    </div> -->
+
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+</div>

@@ -1,0 +1,14 @@
+<div id="search-component">
+    <fieldset>
+        <legend>Hero Search</legend>
+        <app-hero-search-name></app-hero-search-name>
+        <!-- <app-hero-search-power></app-hero-search-power> -->
+    </fieldset>
+    <ul class="search-result">
+        <li *ngFor="let hero of heroes$ | async">
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li>
+    </ul>
+</div>
