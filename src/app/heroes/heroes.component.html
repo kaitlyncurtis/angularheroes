@@ -11,7 +11,7 @@
 
         <!-- (click) passes input value to add() and then clears the input -->
         <button class="add-button"
-            (click)="add(heroName.value, heroHometown.value); heroName.value=''; heroHometown.value=''">
+            (click)="add(heroName.value, heroHometown.value); heroName.value=''; heroHometown.value=''; heroPowers.value=''">
             Save
         </button>
     </div>
@@ -20,6 +20,7 @@
 <ng-template #hideAdd>
     <button class="add-button" (click)="displayAdd=true">Add Hero</button>
 </ng-template>
+
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
         <a routerLink="/detail/{{hero.id}}">
