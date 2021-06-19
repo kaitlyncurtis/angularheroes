@@ -10,7 +10,8 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-
+  displayAdd = false;
+  
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
