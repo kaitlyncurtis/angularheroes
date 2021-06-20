@@ -1,17 +1,29 @@
 <div *ngIf="hero">
 
     <h2>{{hero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-    <div><span>Hometown: </span>{{hero.hometown | uppercase}}</div>
-    <div><span>Powers: </span>
-        <ng-container *ngIf="hero.powers.length>1; else onePower">
-            <span *ngFor="let power of hero.powers">{{power | uppercase}}, </span>
-        </ng-container>
-    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>id</th>
+                <td>{{hero.id}}</td>
+            </tr>
+            <tr>
+                <th>Hometown</th>
+                <td>{{hero.hometown | uppercase}}</td>
+            </tr>
+            <tr>
+                <th>Powers</th>
+                <td *ngIf="hero.powers.length>1; else onePower">
+                    <span *ngFor="let power of hero.powers">{{power | uppercase}}<br/></span>
+                </td>
+                
+                <ng-template #onePower>
+                    <td>{{hero.powers[0] | uppercase}}</td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
 
-    <ng-template #onePower>
-        <span>{{hero.powers[0] | uppercase}}</span>
-    </ng-template>
 
     <div>
         <label for="hero-name">Hero name: </label>
@@ -25,6 +37,7 @@
         <label for="hero-powers">Powers </label>
         <input id="hero-powers" [(ngModel)]="hero.powers" placeholder="powers">
     </div>
+
 
     <button (click)="goBack()">go back</button>
     <button (click)="save()">save</button>
