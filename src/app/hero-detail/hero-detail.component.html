@@ -13,13 +13,9 @@
             </tr>
             <tr>
                 <th>Powers</th>
-                <td *ngIf="hero.powers.length>1; else onePower">
-                    <span *ngFor="let power of hero.powers">{{power | uppercase}}<br/></span>
+                <td>
+                    <div *ngFor="let power of hero.powers">{{power | uppercase}}</div>
                 </td>
-                
-                <ng-template #onePower>
-                    <td>{{hero.powers[0] | uppercase}}</td>
-                </ng-template>
             </tr>
         </tbody>
     </table>
