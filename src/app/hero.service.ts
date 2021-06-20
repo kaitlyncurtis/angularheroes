@@ -64,6 +64,20 @@ export class HeroService {
     );
   }
 
+    /* GET heroes whose hometown contains search term */
+    searchHeroesByHometown(term: string): Observable<Hero[]> {
+      if (!term.trim()) {
+        // if not search term, return empty hero array.
+        return of([]);
+      }
+      return this.http.get<Hero[]>(`${this.heroesUrl}/?hometown=${term}`).pipe(
+        tap(x => x.length ?
+          this.log(`found heroes with hometown matching "${term}"`) :
+          this.log(`no heroes with hometown matching "${term}"`)),
+        catchError(this.handleError<Hero[]>('searchHeroesByHometown', []))
+      );
+    }
+
     /* GET heroes whose power contains search term */
     searchHeroesByPower(term: string): Observable<Hero[]> {
       if (!term.trim()) {
