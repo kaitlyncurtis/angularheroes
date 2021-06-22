@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Hero } from './hero';
 import { MessageService } from './message.service';
 
@@ -53,7 +54,6 @@ export class HeroService {
   /* GET heroes whose name contains search term */
   searchHeroesByName(term: string): Observable<Hero[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
       return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
@@ -67,7 +67,6 @@ export class HeroService {
     /* GET heroes whose hometown contains search term */
     searchHeroesByHometown(term: string): Observable<Hero[]> {
       if (!term.trim()) {
-        // if not search term, return empty hero array.
         return of([]);
       }
       return this.http.get<Hero[]>(`${this.heroesUrl}/?hometown=${term}`).pipe(
@@ -81,7 +80,6 @@ export class HeroService {
     /* GET heroes whose power contains search term */
     searchHeroesByPower(term: string): Observable<Hero[]> {
       if (!term.trim()) {
-        // if not search term, return empty hero array.
         return of([]);
       }
       return this.http.get<Hero[]>(`${this.heroesUrl}/?power=${term}`).pipe(
