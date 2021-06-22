@@ -11,7 +11,7 @@
 
         <!-- (click) passes input value to add() and then clears the input -->
         <button class="add-button"
-            (click)="add(heroName.value, heroHometown.value); heroName.value=''; heroHometown.value=''; heroPowers.value=''">
+            (click)="add(heroName.value, heroHometown.value); displayAdd=false">
             Save
         </button>
     </div>
