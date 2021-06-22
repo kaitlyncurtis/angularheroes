@@ -5,11 +5,4 @@
         <app-hero-search-hometown></app-hero-search-hometown>
         <!-- <app-hero-search-power></app-hero-search-power> -->
     </fieldset>
-    <ul class="search-result">
-        <li *ngFor="let hero of heroes$ | async">
-            <a routerLink="/detail/{{hero.id}}">
-                {{hero.name}}
-            </a>
-        </li>
-    </ul>
 </div>
