@@ -20,12 +20,8 @@
         </tbody>
     </table>
 
-    <div>
-        <button (click)="goBack()">Go Back</button>
-        <button (click)="save()">Save</button>
-    </div>
-
     <ng-container *ngIf="displayUpdate; else hideUpdate">
+        <button (click)="displayUpdate=false">Close</button>
         <div>
             <label for="hero-name">Hero name: </label>
             <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
@@ -34,17 +30,20 @@
             <label for="hero-hometown">Hometown: </label>
             <input id="hero-hometown" [(ngModel)]="hero.hometown" placeholder="hometown">
         </div>
-        <div>
+        <!-- <div>
             <label for="hero-powers">Powers </label>
             <input id="hero-powers" [(ngModel)]="hero.powers" placeholder="powers">
-        </div>
-        <button (click)="displayUpdate=false">Close</button>
+        </div> -->
     </ng-container>
 
     <ng-template #hideUpdate>
         <button (click)="displayUpdate=true">Update Details</button>
     </ng-template>
 
+    <div>
+        <button (click)="goBack()">Go Back</button>
+        <button (click)="save()">Save</button>
+    </div>
 
 
 
